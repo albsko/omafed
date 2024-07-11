@@ -1,2 +1,3 @@
-# Flameshot is a nice step-up over the default Gnome screenshot tool
+#!/bin/bash
+
 sudo apt install -y flameshot

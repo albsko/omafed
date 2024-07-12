@@ -31,12 +31,12 @@ fi
 
 # Install gum if not already installed
 GUM_VERSION="0.14.1"
-cd /tmp
+
 if ! dpkg -l | grep -qw gum; then
+    cd /tmp || return
     echo "Installing gum version $GUM_VERSION..."
     wget -qO gum.deb "https://github.com/charmbracelet/gum/releases/latest/download/gum_${GUM_VERSION}_amd64.deb"
     sudo apt-get install -y ./gum.deb
     rm gum.deb
+    cd - || return
 fi
-cd -
-

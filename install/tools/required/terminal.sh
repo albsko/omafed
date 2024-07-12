@@ -21,6 +21,7 @@ for pkg in "${pkgs[@]}"; do
     fi
 done
 
+# Install eza
 if ! dpkg -l | grep -q "eza"; then
     echo "Installing eza..."
     sudo mkdir -p /etc/apt/keyrings

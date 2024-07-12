@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt install -y docker.io docker-buildx
 sudo usermod -aG docker ${USER}
 

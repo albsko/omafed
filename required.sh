@@ -9,6 +9,8 @@ for pkg in curl git unzip; do
     if ! dpkg -l | grep -qw $pkg; then
         echo "Installing $pkg..."
         sudo apt install -y $pkg
+    else
+        echo "$pkg is already installed."
     fi
 done
 
@@ -16,22 +18,27 @@ done
 if ! dpkg -l | grep -qw flatpak; then
     echo "Installing flatpak..."
     sudo apt install -y flatpak
+else
+    echo "flatpak is already installed."
 fi
 
 if ! dpkg -l | grep -qw gnome-software-plugin-flatpak; then
     echo "Installing gnome-software-plugin-flatpak..."
     sudo apt install -y gnome-software-plugin-flatpak
+else
+    echo "gnome-software-plugin-flatpak is already installed."
 fi
 
 # Add flathub repository if not already added
 if ! flatpak remotes | grep -qw flathub; then
     echo "Adding flathub repository..."
     sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+else
+    echo "flathub repository is already added."
 fi
 
 # Install gum if not already installed
 GUM_VERSION="0.14.1"
-
 if ! dpkg -l | grep -qw gum; then
     cd /tmp || return
     echo "Installing gum version $GUM_VERSION..."
@@ -39,4 +46,6 @@ if ! dpkg -l | grep -qw gum; then
     sudo apt-get install -y ./gum.deb
     rm gum.deb
     cd - || return
+else
+    echo "gum is already installed."
 fi

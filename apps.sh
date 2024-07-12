@@ -20,9 +20,9 @@ done
 sorted_files_map_keys=($(for key in "${!sh_files_map[@]}"; do echo "$key"; done | sort))
 
 # Ask for apps to install
-apps_to_install=$(gum choose "${sorted_files_map_keys[@]}" --no-limit --height 20 --header "Select apps")
+apps_to_install=$(gum choose "${sorted_files_map_keys[@]}" --no-limit --height 20 --header "What apps would you like to install?")
 
-# Run proper app installer scripts
+# Run selected installer scripts
 for app in $apps_to_install; do
     installer="${sh_files_map[$app]}"
     echo "Running $installer"

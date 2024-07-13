@@ -27,11 +27,18 @@ pkgs=(
 	libmysqlclient-dev
 )
 
+echo "Fetching list of installed packages..."
+installed_pkgs=$(dpkg -l | awk '{print $2}')
+
 for pkg in "${pkgs[@]}"; do
-	if ! dpkg -l | grep -q "$pkg"; then
-		echo "Installing $pkg..."
-		sudo apt install -y "$pkg"
-	else
+	if echo "$installed_pkgs" | grep -q "${pkg}"; then
 		echo "$pkg is already installed."
+	else
+		echo "Installing $pkg..."
+		if sudo apt-get install -y "$pkg"; then
+			echo "$pkg installed successfully."
+		else
+			echo "Failed to install $pkg." >&2
+		fi
 	fi
 done

@@ -1,5 +1,9 @@
+#!/bin/bash
+
+RUNNING_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
 mkdir -p ~/.config/alacritty
-cp ~/.local/share/omakub/configs/alacritty.toml ~/.config/alacritty/alacritty.toml
-cp ~/.local/share/omakub/themes/tokyo-night/alacritty.toml ~/.config/alacritty/theme.toml
-cp ~/.local/share/omakub/configs/alacritty/fonts/CaskaydiaMono.toml ~/.config/alacritty/font.toml
-cp ~/.local/share/omakub/configs/alacritty/font-size.toml ~/.config/alacritty/font-size.toml
+cp "$RUNNING_SCRIPT_DIR/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+cp "$RUNNING_SCRIPT_DIR/theme.toml" "$HOME/.config/alacritty/theme.toml"
+cp "$RUNNING_SCRIPT_DIR/font.toml" "$HOME/.config/alacritty/font.toml"
+cp "$RUNNING_SCRIPT_DIR/font-size.toml" "$HOME/.config/alacritty/font-size.toml"

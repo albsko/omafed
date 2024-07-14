@@ -14,9 +14,6 @@ if [ ! -d "$HOME/.config/nvim" ]; then
 	mkdir -p ~/.config/nvim/plugin/after
 	cp "$RUNNING_SCRIPT_DIR/transparency.lua" "$HOME/.config/nvim/plugin/after/"
 
-	# Default to Catppuccin theme
-	cp "$RUNNING_SCRIPT_DIR/../../themes/catppuccin/neovim.lua" "$HOME/.config/nvim/lua/plugins/theme.lua"
-
 	# Enable default extras
 	cp "$RUNNING_SCRIPT_DIR/lazyvim.json" "$HOME/.config/nvim/lazyvim.json"
 fi

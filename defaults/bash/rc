@@ -1,0 +1,4 @@
+source ~/.local/share/omapop/defaults/bash/shell
+source ~/.local/share/omapop/defaults/bash/aliases
+source ~/.local/share/omapop/defaults/bash/prompt
+source ~/.local/share/omapop/defaults/bash/init
